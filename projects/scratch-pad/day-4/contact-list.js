@@ -35,7 +35,12 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-return {id: }
+//return an objectt with each property inside of it
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    };
 } 
 
 
@@ -43,29 +48,58 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
+     //creating contacts array and assigning it to an empty array
     var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        };
-        addContact: function(fullName){
-            for(var i = 0; i < contacts.length; i++){
-                var full = `${contacts[i].nameFirst} ${contacts[i].nameLast}`;
-                if(full === fullName){
-                    return contacts[i];
-                }
+        },
+        addContact: function(contact){
+            contacts.push(contact);
+         
+    },
+    findContact: function(fullName){
+        //looping over contacts array
+        for(let i = 0; i < contacts.length; i++){
+            //creating full variable and assigning it to the nameFirst and nameLast properties
+            let full = `${contacts[i].nameFirst} ${contacts[i].nameLast}`;
+            //returning contact if fullName matches full variable
+            if (full === fullName){
+                return contacts[i];
             }
         }
-    };
+    },
     removeContact: function(contact){
+        //looping over contacts array to get access to each contact
         for(var i = 0; i < contacts.length; i++){
-            if(contacts[i].firstName === contact.nameFirst){
-                contacts.splice(i, 1);
+            //finding the contact index in which we want to remove
+            if(contacts[i].nameFirst === contact.nameFirst){
+                //using .splice method to remove the contact
+               return contacts.splice(i, 1);
             }
         }
-    };
+    },
+    
+    
+    printAllContactNames: function(){
+        //Declare names array
+        let names = [];
+        //loop over contacts to get access to each contact object
+        for(var i = 0; i < contacts.length; i++){
+            //add each full name to the names array
+            names.push(`${contacts[i].nameFirst} ${contacts[i].nameLast}`);
+        }
+        //join the array together as one string using .join
+        return names.join("\n");
+    }
+    
+    
+    
+    
+};
+
 }
 
 

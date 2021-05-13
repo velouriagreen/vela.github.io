@@ -23,18 +23,24 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    //create an emtpy array and assign it to arr variable
         var arr = [];
+        //create a conditional that checks to see if start is less than or equal to end
     if (start <= end){
+        //creating for-loop that loops over values from start to end
         for(var i = start; i <= end; i++){
+            //pushing those values into arr
             arr.push(i);
         }
     } else {
         //for(var i = 8; i <= 14; i++)
+        //create a for-loop that loops over values from start to end backwards
         for (var i = start; i >= end; i--){
-            
+            //pushing those values into arr
             arr.push(i);
         }
     }
+    //returning arr;
     return arr;
     
     
